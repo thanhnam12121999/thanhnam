@@ -21,3 +21,11 @@ function countOccurrences(arr) {
 
 
 countOccurrences(['a', 'b', 'c', 'b', 'a']);
+//___________________________________________
+
+// Sử dụng sort method để sắp xếp lại 1 array các số sau theo thứ tự tăng dần (descending order)
+
+function sortNumber(arr) {
+     return arr.sort((x ,y)=>(x-y));
+              
+}
