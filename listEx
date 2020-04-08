@@ -29,3 +29,63 @@ function sortNumber(arr) {
      return arr.sort((x ,y)=>(x-y));
               
 }
+
+//___________________________________________
+
+// Sort an array alphabetically
+
+function alphabetical(arr) {
+          arr.sort(function(x ,y ){
+                if(x<y){
+                    return -1;
+                }else 
+                 if(x>y)
+                  return 1;   
+          })
+          return arr;
+}
+alphabetical(["cat", "dog", "bird", "fish", "buffalo", "rabbit", "mouse", "turtle"])
+//___________________________________________
+
+// Sort the objects in the array by age
+
+var arr = [
+  {
+    name: "Quiet Samurai",
+    age: 22
+  },
+  {
+    name: "Arrogant Ambassador",
+    age: 100
+  },
+  {
+    name: "Misunderstood Observer",
+    age: 2
+  },
+  {
+    name: "Unlucky Swami",
+    age: 77
+  }
+];
+
+function byAge(arr){
+   
+         arr.sort(function(x ,y){
+                  if(x.age < y.age){
+                     return -1;
+                  }else
+                   if(x.age > y.age)
+                      return 1;     
+         })
+        return arr;  
+}
+byAge(arr);
+
+
+
+
+
+
+
+
+
