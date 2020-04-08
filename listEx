@@ -101,8 +101,32 @@ function getTopStudents(students) {
     return students.sort((x,y)=>(y.score-x.score )).slice(0,3).map(x=>x.name);
 }
 getTopStudents(students);
+//________________________________________________________________________________________________
+// Dùng hàm powerup tính bình phương các số chia hết cho 2 trong mảng truyền vào
 
+function powerup(arr) {
+   var fix=[];
+     for(var x of arr){
+            if(x % 2===0){
+                fix.push(x*x);
+             } else 
+                fix.push(x);           
+        }
+    return fix;
+}
 
+powerup([0, 3, 6, 7, 4])
+//----------------------------------------
+function powerup(arr) {
+      var c= arr.map(function(x){
+            if(x%2===0)
+                 return x*x;
+            else
+                 return x;     
+       });
+      return c; 
+}
+powerup([0, 3, 6, 7, 4])
 
 
 
