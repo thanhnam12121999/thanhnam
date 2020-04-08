@@ -1,0 +1,23 @@
+/**
+ * Count the occurrences of each element inside an array using reduce
+ * @params {array}
+ * @return {object}
+ * Example: 
+ * countOccurrences(['a', 'b', 'c', 'b', 'a']) // { a: 2, b: 2, c: 1 };
+}
+*/
+
+function countOccurrences(arr) {
+   let result = arr.reduce((newOb,num)=>{
+           if(num in newOb){
+              newOb[num]++;
+           }else{
+              newOb[num] = 1;    
+           }
+        return newOb;
+     },{});
+      return result;
+}
+
+
+countOccurrences(['a', 'b', 'c', 'b', 'a']);
