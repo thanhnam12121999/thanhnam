@@ -127,7 +127,22 @@ function powerup(arr) {
       return c; 
 }
 powerup([0, 3, 6, 7, 4])
+//___________________________________________
+/** 
+ * Dùng hàm average tính điểm trung bình 3 môn của một học sinh.
+ * Làm tròn điểm trung bình
+ * Ví dụ: [8, 8, 6.75]  => 8
+ * Gợi ý: Dùng Math.round 
+*/
 
+function average(arr) {
+   var c= 0;
+       for (var nam of arr){
+             c += nam;
+       }
+      return Math.round(c/(arr.length));
+      
+}
 
 
 
