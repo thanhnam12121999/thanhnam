@@ -1,0 +1,35 @@
+//tìm va in ra số xuất hiện nhiều nhất trong mảng!!!
+//Find and print out the number that appears the most in the array!!!
+
+function findNumber(thisMang){
+
+        var a=  thisMang.reduce(function(x ,y){
+                    if(y in x){
+                      x[y]++; 
+                    }else{
+                      x[y] = 1;
+                    }
+                  return x  ;             
+          },{});
+  var lo =[];
+  var res=[];
+     for(var key in a){ 
+          lo.push(a[key]);
+          res.push(key);
+     }
+    lo.sort(function(lo1 ,lo2){
+           return lo2-lo1;
+    });
+  var lo2=[];
+     for(var key2 in a){
+        lo2.push(a[key2]);
+   } 
+
+  for(var e=0;e<lo2.length;e++){ 
+         if(lo[0]===lo2[e])
+              var end = e;                          
+      }  
+console.log('số có số phần tử nhiều nhất là: '+res[end]);
+}
+
+findNumber([2 ,5 ,6 ,1 ,8 ,6 ,6 ,1]);
