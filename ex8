@@ -1,0 +1,42 @@
+//file txt
+'{"name":"thanhnam","age":21,"school":"KMA" }'
+
+
+//______________________________________________________
+function main(){
+    var readlineSync = require('readline-sync');
+    var key          = readlineSync.question('let pick 1 ,2 ,3: ');
+while(true){
+   if(key==1){
+var fs    = require('fs');
+var text  =fs.readFileSync('./bai8_1.text',{encoding : 'utf8'});
+console.log(text);
+var namx  ='{"name":"thanhnam","age":21,"school":"KMA" }';
+var changeStr =JSON.parse(namx);
+console.log(changeStr);
+break;
+}else{
+	if(key==2){
+        var hoten         =readlineSync.question('moi ban nhap ho ten :');
+        var tuoi          =readlineSync.question('moi ban nhap tuoi :');
+        var school        =readlineSync.question('moi ban nhap ten school :');
+
+      function sinhvien(){
+	        this.hoten=hoten;
+	        this.tuoi=tuoi;
+	        this.school=school;
+      }
+      var sinhviend = new sinhvien();
+      var arraySV   =[];
+      arraySV.push(sinhviend);
+      console.log(arraySV);
+      break;
+	  }else{
+	  	  if(key==3){
+	  	   break;
+	  	  }
+	  }
+}
+}
+}
+main();
