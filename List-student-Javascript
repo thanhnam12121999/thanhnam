@@ -1,5 +1,5 @@
 var readlineSync = require('readline-sync');
-
+  var fs = require('fs');
 
 function student(){
     var studentArr = [];
@@ -23,11 +23,9 @@ function student(){
          };
       };
       this.saveFile = function(){
-            var fs = require('fs');
-            fs.writeFile('./proj.text', studentArr , function (err) {
-            if (err) throw err;
-            console.log('Saved!');
-      });
+            var changeStr = JSON.stringify(studentArr);
+            fs.writeFileSync('./proj.json', changeStr, {encoding : 'utf8'});
+                
       };
 
      this.menu =function(){
