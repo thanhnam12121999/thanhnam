@@ -1,0 +1,57 @@
+var readlineSync = require('readline-sync');
+
+
+function student(){
+    var studentArr = [];
+   
+      this.inputStudent = function(){
+           var name   = readlineSync.question('what is your name    :');
+           var age    = readlineSync.question('how old are you     :');
+           var school = readlineSync.question('what is your school name:');  function cst1(){
+                  this.name   = name;
+                  this.age    = age ;
+                  this.school = school ;
+           };
+           var student1 = new cst1();
+           studentArr.push(student1);
+      };
+      
+      this.creatArrStudent = function(){
+        var number = readlineSync.question('how many student :');    
+            for(var i=0; i < number; i++){
+              inputStudent();
+         };
+      };
+      this.saveFile = function(){
+            var fs = require('fs');
+            fs.writeFile('./proj.text', studentArr , function (err) {
+            if (err) throw err;
+            console.log('Saved!');
+      });
+      };
+
+     this.menu =function(){
+          console.log('---------MENU---------');
+          console.log('Pick 1 is creat student ');
+          console.log('Pick 2 show student you created ');
+          console.log('Pick 3 save file !!! ');
+          console.log('Pick 4 out ');
+     };
+      do{  
+          menu()        
+          var pick   = readlineSync.question('> ');
+          switch (pick){
+             case '1' :
+                 creatArrStudent();
+                 break;
+             case '2' :
+                 console.log(studentArr);
+                 break;
+             case '3' :{
+                 saveFile();
+             }
+          }
+      }while(pick!=4)
+
+}
+student()
