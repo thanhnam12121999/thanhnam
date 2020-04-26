@@ -1,0 +1,39 @@
+/**
+ * Sử dụng module `request` (https://www.npmjs.com/package/request) để tải dữ liệu từ đường link sau về và hiển thị ra màn hình:
+ * https://randomuser.me/api/
+ * 
+ * Sử dụng console.time và console.timeEnd để hiển thị ra thời gian tải link. Tìm hiểu về 2 hàm này tại: https://alligator.io/js/console-time-timeend/
+ * hoặc google 'console.time'
+ */
+console.time("Time this");
+const request = require('request');
+
+request('https://randomuser.me/api/', function (error, response, body) {
+  console.log('body:', body); 
+});
+
+console.timeEnd("Time this");
+_____________________________________________________________________________
+/**
+ * Sử dụng module `axios` để tải dữ liệu và hiển thị ra màn hình lần lượt từng đường link (xong cái này rồi mới tới cái kia):
+ * https://jsonplaceholder.typicode.com/todos/1
+ * https://jsonplaceholder.typicode.com/todos/2
+ */
+var axios = require('axios');
+
+function getData() {
+  axios.get('https://jsonplaceholder.typicode.com/todos/1')
+  .then(function(response){
+    console.log(response.data);
+  }).catch(function(err){
+    console.log(err);
+  });
+   axios.get('https://jsonplaceholder.typicode.com/todos/2')
+  .then(function(response){
+    console.log(response.data);
+  }).catch(function(err){
+    console.log(err);
+  });
+
+}
+getData()
