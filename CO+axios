@@ -1,0 +1,41 @@
+/**
+ * Sử dụng node co + axios để tải về các đường link sau theo 2 cách:
+ */
+var urls = [
+  'https://jsonplaceholder.typicode.com/todos/1',
+  'https://jsonplaceholder.typicode.com/todos/2',
+  'https://jsonplaceholder.typicode.com/todos/3',
+  'https://jsonplaceholder.typicode.com/todos/4',
+  'https://jsonplaceholder.typicode.com/todos/5'
+];
+
+// Cách 1: Sử dụng vòng lặp for
+
+// Cách 2: Sử dụng array.map
+// Gợi ý: Có thể yield 1 array các Promise
+
+var co    = require('co');
+var axios = require('axios')
+
+function fixDisplay(link1){
+     return new Promise(function(data, err){
+           axios.get(link1)
+             .then(function(res){
+                  data(res.data)
+             })
+             .catch(function(error){
+                  err(error) 
+             });
+     }) 
+}
+
+var readLink = co.wrap(function*(file){
+      var value = yield file.map(function(x){
+             return fixDisplay(x)
+                
+      })
+       return value;
+})
+readLink(urls)
+  .then(res =>console.log(res))
+  .catch(err =>console.log(err))
