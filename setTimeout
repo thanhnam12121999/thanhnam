@@ -1,0 +1,51 @@
+/**
+ * Tạo 1 hàm doAfter nhận vào 2 tham số:
+ *  - Tham số thứ 1: 1 function
+ *  - Tham số thứ 2: Thời gian x (ms)
+ * Hàm này sẽ gọi function sau 1 khoảng thời gian x ms VÀ trả về 1 promise để có thể gọi như sau 
+ */
+
+function doAfter(x, y) {
+    
+      return new Promise(function(res, err){
+             setTimeout(function(){
+                 x();
+                 res()
+             }, y)         
+      })
+      
+}
+
+function sayHello() {
+  console.log('Hello');
+}
+
+function sayGoodbye() {
+  console.log('Goodbye');
+}
+
+doAfter(sayHello, 2000).then(sayGoodbye);
+// Expect: 
+// Đợi 1s
+// Hello
+// Goodbye
+___________________________________________________________
+
+/**
+ * Tạo 1 hàm doAfter nhận vào 2 tham số:
+ *  - Tham số thứ 1: 1 function
+ *  - Tham số thứ 2: Thời gian x (ms)
+ * Hàm này sẽ gọi function sau 1 khoảng thời gian x ms
+ */
+
+function doAfter(time1, x){
+      setTimeout(time1, x);
+}
+function test(){
+     console.log('finish!');
+}
+
+
+console.log('start')
+doAfter(test,3000)
+console.log('wait...')
