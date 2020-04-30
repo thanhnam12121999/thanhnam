@@ -1,0 +1,46 @@
+/**
+ * Viết hàm countDown đếm ngược từ x về 0, mỗi lần đếm cách nhau 1s, sau đó hiển thị 'Happy new year'
+ */
+function countDown(x) {
+     
+      var stop1 = setInterval(function(){ 
+         if(x >0){                             
+          console.log(x);  
+           --x;                            
+         }else{
+             if(x ===0)
+              console.log(x);
+              console.log('Happy new year');
+              clearInterval(stop1);
+         }            
+      },1000)   
+}
+countDown(5);
+__________________________________________________________________
+
+/**
+ * Viết hàm countDown đếm ngược từ x về 0, mỗi lần đếm cách nhau 1s, trả về promise, promise này resolve sau khi đã đếm xong
+ */
+function countDown(x) {
+    return new Promise(function(res, err){
+           var end1 = setInterval(function(){
+                if(x >0){
+                   console.log(x);
+                   x--;
+                }else
+                   if(x ===0){
+                     console.log(x);
+                     res();
+                     clearInterval(end1); 
+                   }
+           },1000)
+    })
+}
+
+function sayHappyNewYear() {
+  console.log('Happy new year');
+}
+
+countDown(10).then(sayHappyNewYear);
+__________________________________________________________________
+
